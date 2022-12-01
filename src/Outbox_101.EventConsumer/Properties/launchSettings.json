@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Outbox_101.Consumer": {
+      "commandName": "Project"
+    }
+  }
+}
