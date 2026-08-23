@@ -22,13 +22,13 @@ src
 ## Technologies used
 
 <ul>
-	<li><a href='https://dotnet.microsoft.com/en-us/download/dotnet/6.0' target="_blank">.NET 6</a> and 
-	<a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx' target="_blank">C# 10</a></li>
-	<li>Kafka</li>
-	<li>Entity Framework Core 6</li>  
+	<li><a href='https://dotnet.microsoft.com/en-us/download/dotnet/10.0' target="_blank">.NET 10</a> and 
+	<a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx' target="_blank">C# 14</a></li>
+	<li>Kafka (Confluent.Kafka 2.15)</li>
+	<li>Entity Framework Core 10 (Npgsql 10.0.3)</li>  
 	<li>Postgres</li>  
-	<li>MediatR</li>
-	<li>XUnit / NSubstitute</li>
+	<li>MediatR 14</li>
+	<li>XUnit / NSubstitute 6</li>
 	<li>Docker Compose</li>
 	<li>Debezium (optional)</li>
 </ul>
