@@ -1,6 +1,3 @@
-using FluentAssertions;
-using Outbox_101.Domain.Tickets;
-
 namespace Outbox_101.Domain.Tests;
 
 public class TicketTests
@@ -8,15 +5,15 @@ public class TicketTests
     [Fact]
     public void OpenNewTicket_ShouldSetOpenStatus()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
 
-        // When
+        // Act
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
 
-        // Then
+        // Assert
         Assert.NotNull(ticket);
         ticket.Id.Should().NotBe(Guid.Empty);
         ticket.Title.Should().Be(title);
@@ -28,16 +25,16 @@ public class TicketTests
     [Fact]
     public void SetTicketInProgress_ShouldHaveInProgressStatus()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
 
-        // When
+        // Act
         ticket.SetInProgress();
 
-        // Then
+        // Assert
         Assert.NotNull(ticket);
         ticket.Status.Should().Be(TicketStatus.IN_PROGRESS);
     }
@@ -45,16 +42,17 @@ public class TicketTests
     [Fact]
     public void SetTicketClosed_ShouldHaveClosedStatus()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
+        ticket.SetInProgress();
 
-        // When
+        // Act
         ticket.Close();
 
-        // Then
+        // Assert
         Assert.NotNull(ticket);
         ticket.Status.Should().Be(TicketStatus.CLOSED);
     }

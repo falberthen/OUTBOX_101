@@ -1,20 +1,15 @@
-using Moq;
-using Outbox_101.Domain.Tickets;
-using Outbox_101.Infrastructure.Outbox;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Outbox_101.Infrastructure.Persistence;
-using Outbox_101.Infrastructure.Kafka.Producers;
-using Outbox_101.Infrastructure.Outbox.Polling;
-
 namespace Outbox_101.Infrastructure.Tests;
 
 public class OutboxMessageProcessorTests
 {
+    private readonly IOutboxMessages _outboxMessages = Substitute.For<IOutboxMessages>();
+    private readonly IKafkaProducer _kafkaProducer = Substitute.For<IKafkaProducer>();
+    private readonly ILogger<OutboxMessageProcessor> _logger = Substitute.For<ILogger<OutboxMessageProcessor>>();
+
     [Fact]
     public async Task FetchUnprocessedAsync_ShouldReturnOnlyUnprocessedMessages()
     {
-        // Given
+        // Arrange
         int batchSize = 10;
         string title = "Title";
         string description = "Description";
@@ -29,35 +24,30 @@ public class OutboxMessageProcessorTests
             return ticket.OutboxUncommitedEvents();
         }).ToArray();
 
-        _outboxMessages.Setup(o => o.FetchUnprocessedAsync(batchSize, CancellationToken.None))
-            .Returns(Task.FromResult(outboxMessages));
+        _outboxMessages.FetchUnprocessedAsync(batchSize, CancellationToken.None)
+            .Returns(outboxMessages);
 
-        var unitOfWork = new Mock<ITicketUnitOfWork>();
-        unitOfWork.Setup(u => u.OutboxMessages)
-            .Returns(_outboxMessages.Object);
+        var unitOfWork = Substitute.For<ITicketUnitOfWork>();
+        unitOfWork.OutboxMessages.Returns(_outboxMessages);
 
         IOptions<OutboxMessageProcessorOptions> options = Options.Create(
             new OutboxMessageProcessorOptions() { BatchSize = batchSize, Interval = TimeSpan.FromSeconds(10) });
 
         var messageProcessor = new OutboxMessageProcessor(
-            unitOfWork.Object, 
-            _kafkaProducer.Object,
+            unitOfWork,
+            _kafkaProducer,
             options,
-            _logger.Object);
+            _logger);
 
-        // When
+        // Act
         await messageProcessor.ProcessMessagesAsync(CancellationToken.None);
 
         var processedMessages = outboxMessages
             .Select(m => m.ProcessedAt is not null)
             .ToList();
 
-        // Then
+        // Assert
         Assert.NotNull(processedMessages);
         processedMessages.Count().Should().Be(outboxMessages.Count());
     }
-
-    private Mock<IOutboxMessages> _outboxMessages = new Mock<IOutboxMessages>();
-    private Mock<IKafkaProducer> _kafkaProducer = new Mock<IKafkaProducer>();
-    private Mock<ILogger<OutboxMessageProcessor>> _logger = new Mock<ILogger<OutboxMessageProcessor>>();
 }

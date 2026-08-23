@@ -1,7 +1,3 @@
-using FluentAssertions;
-using Outbox_101.Domain.Tickets;
-using Outbox_101.Domain.Tickets.Events;
-
 namespace Outbox_101.Domain.Tests;
 
 public class TicketEventsTests
@@ -9,15 +5,15 @@ public class TicketEventsTests
     [Fact]
     public void OpenNewTicket_ShouldCauseTicketOpenEvent()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
 
-        // When
+        // Act
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
 
-        // Then
+        // Assert
         Assert.NotNull(ticket);
         var @event = ticket.GetUncommittedEvents().LastOrDefault() as TicketOpen;
         Assert.NotNull(@event);
@@ -27,16 +23,16 @@ public class TicketEventsTests
     [Fact]
     public void SetTicketInProgress_ShouldCauseTicketInProgressEvent()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
 
-        // When
+        // Act
         ticket.SetInProgress();
 
-        // Then
+        // Assert
         Assert.NotNull(ticket);
         var @event = ticket.GetUncommittedEvents().LastOrDefault() as TicketInProgress;
         Assert.NotNull(@event);
@@ -46,16 +42,17 @@ public class TicketEventsTests
     [Fact]
     public void CloseTicket_ShouldCauseTicketClosedEvent()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
+        ticket.SetInProgress();
 
-        // When
+        // Act
         ticket.Close();
 
-        // Then
+        // Assert
         Assert.NotNull(ticket);
         var @event = ticket.GetUncommittedEvents().LastOrDefault() as TicketClosed;
         Assert.NotNull(@event);
@@ -63,17 +60,35 @@ public class TicketEventsTests
     }
 
     [Fact]
+    public void RedeliveredTicketOpen_ShouldNotCauseSecondTicketInProgressEvent()
+    {
+        // Arrange
+        string title = "Title";
+        string description = "Description";
+        var ticketPriority = TicketPriority.MEDIUM;
+        var ticket = Ticket.OpenNew(title, description, ticketPriority);
+        ticket.SetInProgress();
+
+        // Act
+        ticket.SetInProgress();
+
+        // Assert
+        ticket.Status.Should().Be(TicketStatus.IN_PROGRESS);
+        ticket.GetUncommittedEvents().OfType<TicketInProgress>().Should().HaveCount(1);
+    }
+
+    [Fact]
     public void InvalidTicketData_ShouldThrowArgumentNullException()
     {
-        // Given
+        // Arrange
         string title = string.Empty;
         string description = string.Empty;
         
-        // When
+        // Act
         Func<Ticket> action = () =>
             Ticket.OpenNew(title, description, TicketPriority.LOW);
 
-        // Then
+        // Assert
         action.Should().Throw<ArgumentNullException>();
     }
 }

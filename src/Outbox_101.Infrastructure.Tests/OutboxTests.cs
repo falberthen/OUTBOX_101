@@ -1,6 +1,3 @@
-using Outbox_101.Domain.Tickets;
-using Outbox_101.Infrastructure.Outbox;
-
 namespace Outbox_101.Infrastructure.Tests;
 
 public class OutboxTests
@@ -8,16 +5,16 @@ public class OutboxTests
     [Fact]
     public void OutboxUncommitedEvents_ShouldReturnOutboxMessages_ForAllUncommitedEvents()
     {
-        // Given
+        // Arrange
         string title = "Title";
         string description = "Description";
         var ticketPriority = TicketPriority.MEDIUM;
         var ticket = Ticket.OpenNew(title, description, ticketPriority);
 
-        // When
+        // Act
         var outboxMessages = ticket.OutboxUncommitedEvents();
 
-        // Then
+        // Assert
         Assert.NotNull(outboxMessages);
         ticket.GetUncommittedEvents().Count().Should().Be(outboxMessages.Count());        
     }

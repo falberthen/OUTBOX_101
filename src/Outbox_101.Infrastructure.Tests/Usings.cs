@@ -1,2 +1,10 @@
-global using Xunit;
 global using FluentAssertions;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using NSubstitute;
+global using Outbox_101.Domain.Tickets;
+global using Outbox_101.Infrastructure.Kafka.Producers;
+global using Outbox_101.Infrastructure.Outbox.Polling;
+global using Outbox_101.Infrastructure.Outbox;
+global using Outbox_101.Infrastructure.Persistence;
+global using Xunit;
