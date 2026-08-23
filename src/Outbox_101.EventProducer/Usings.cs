@@ -1,0 +1,15 @@
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Outbox_101.Domain.Tickets;
+global using Outbox_101.EventConsumer.Configurations;
+global using Outbox_101.EventProducer;
+global using Outbox_101.Infrastructure.Kafka.Producers;
+global using Outbox_101.Infrastructure.Outbox.Polling;
+global using Outbox_101.Infrastructure.Outbox;
+global using Outbox_101.Infrastructure.Persistence.Configurations;
+global using Outbox_101.Infrastructure.Persistence;
+global using Outbox_101.Infrastructure.Workers.Outbox.Debezium;
+global using Outbox_101.Infrastructure.Workers.Outbox.Polling;
+global using Outbox_101.Infrastructure.Workers;

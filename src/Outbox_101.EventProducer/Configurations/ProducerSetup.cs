@@ -1,14 +1,4 @@
-﻿using Outbox_101.Infrastructure.Workers;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Outbox_101.Infrastructure.Workers.Outbox.Polling;
-using Outbox_101.Infrastructure.Workers.Outbox.Debezium;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Outbox_101.Infrastructure.Kafka.Producers;
-using Outbox_101.Infrastructure.Outbox.Polling;
-using Outbox_101.Infrastructure.Outbox;
-
-namespace Outbox_101.EventConsumer.Configurations;
+﻿namespace Outbox_101.EventConsumer.Configurations;
 
 public static class ProducerSetup
 {

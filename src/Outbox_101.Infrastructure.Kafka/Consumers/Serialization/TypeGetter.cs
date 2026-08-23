@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
+﻿namespace Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
 
 public static class TypeGetter
 {

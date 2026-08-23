@@ -1,8 +1,4 @@
-﻿using System.Text;
-using Confluent.Kafka;
-using Newtonsoft.Json;
-
-namespace Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
+﻿namespace Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
 
 public class JsonEventSerializer<T> : IDeserializer<T?> 
     where T : class

@@ -1,9 +1,4 @@
-﻿using Outbox_101.Domain.Tickets;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Outbox_101.Infrastructure.Persistence;
-
-namespace Outbox_101.EventProducer;
+﻿namespace Outbox_101.EventProducer;
 
 public static class TicketBuilder
 {

@@ -1,11 +1,4 @@
-﻿using MediatR;
-using Outbox_101.Infrastructure.Workers;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Outbox_101.Infrastructure.Kafka.Consumers;
-using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
-
-namespace Outbox_101.EventConsumer.Configurations;
+﻿namespace Outbox_101.EventConsumer.Configurations;
 
 public static class ConsumerSetup
 {

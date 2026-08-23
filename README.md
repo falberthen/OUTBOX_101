@@ -6,16 +6,15 @@
 This project is an implementation of the transactional outbox pattern to guarantee message delivery between microservices. 
 
 ```bash
-├── ConsoleApps
-│   ├── Outbox_101.EventConsumer
-│   ├── Outbox_101.EventProducer
-├── Domain
-│   ├── Outbox_101.Domain
-├── Infrastructure
-│   ├── Outbox_101.Infrastructure
-│   ├── Outbox_101.Infrastructure.Kafka
-│   ├── Outbox_101.Infrastructure.Workers
-└─── 
+src
+├── Outbox_101.EventConsumer
+├── Outbox_101.EventProducer
+├── Outbox_101.Domain
+├── Outbox_101.Domain.Tests
+├── Outbox_101.Infrastructure
+├── Outbox_101.Infrastructure.Kafka
+├── Outbox_101.Infrastructure.Tests
+└── Outbox_101.Infrastructure.Workers
 ```
 
 <br>
@@ -29,7 +28,7 @@ This project is an implementation of the transactional outbox pattern to guarant
 	<li>Entity Framework Core 6</li>  
 	<li>Postgres</li>  
 	<li>MediatR</li>
-	<li>XUnit / Mock</li>
+	<li>XUnit / NSubstitute</li>
 	<li>Docker Compose</li>
 	<li>Debezium (optional)</li>
 </ul>
@@ -44,8 +43,15 @@ This project is an implementation of the transactional outbox pattern to guarant
 Using a terminal, run:
 
 ```console
- $ docker-compose up
+ $ docker compose up
 ``` 
 
 You can also set the `docker-compose.dcproj` as a Startup project on Visual Studio if you want to run it while debugging. 
+<br/>
+
+## Running tests
+
+```console
+ $ dotnet test
+```
 <br/>

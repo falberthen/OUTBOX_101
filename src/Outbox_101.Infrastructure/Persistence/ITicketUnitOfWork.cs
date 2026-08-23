@@ -1,7 +1,4 @@
-﻿using Outbox_101.Domain.Tickets;
-using Outbox_101.Infrastructure.Outbox;
-
-namespace Outbox_101.Infrastructure.Persistence;
+﻿namespace Outbox_101.Infrastructure.Persistence;
 
 public interface ITicketUnitOfWork
 {

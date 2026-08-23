@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Outbox_101.Infrastructure.Outbox;
-
-namespace Outbox_101.Infrastructure.Persistence.Repositories;
+﻿namespace Outbox_101.Infrastructure.Persistence.Repositories;
 
 public class OutboxMessages : IOutboxMessages
 {

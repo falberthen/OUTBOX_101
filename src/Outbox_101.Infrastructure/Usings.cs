@@ -1,0 +1,16 @@
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using Newtonsoft.Json;
+global using Outbox_101.Domain.Base;
+global using Outbox_101.Domain.Tickets.Events.Base;
+global using Outbox_101.Domain.Tickets;
+global using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
+global using Outbox_101.Infrastructure.Kafka.Producers.Serialization;
+global using Outbox_101.Infrastructure.Kafka.Producers;
+global using Outbox_101.Infrastructure.Outbox;
+global using Outbox_101.Infrastructure.Persistence.Repositories;
+global using Outbox_101.Infrastructure.Persistence;

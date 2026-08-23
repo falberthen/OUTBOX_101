@@ -1,11 +1,4 @@
-﻿using Polly;
-using Confluent.Kafka;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
-using Outbox_101.Domain.Tickets.Events.Base;
-
-namespace Outbox_101.Infrastructure.Kafka.Consumers;
+﻿namespace Outbox_101.Infrastructure.Kafka.Consumers;
 
 public class KafkaConsumer : IKafkaConsumer
 {

@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Outbox_101.Domain.Tickets.Events;
-using Outbox_101.Infrastructure.Persistence;
-
-namespace Outbox_101.EventConsumer;
+﻿namespace Outbox_101.EventConsumer;
 
 internal class TicketHandler :
     INotificationHandler<TicketOpen>,

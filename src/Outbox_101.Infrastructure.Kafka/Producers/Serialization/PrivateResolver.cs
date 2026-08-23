@@ -1,8 +1,4 @@
-﻿using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
-using System.Reflection;
-
-namespace Outbox_101.Infrastructure.Kafka.Producers.Serialization;
+﻿namespace Outbox_101.Infrastructure.Kafka.Producers.Serialization;
 
 public class PrivateResolver : DefaultContractResolver
 {

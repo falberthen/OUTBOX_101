@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
-using Outbox_101.Infrastructure.Persistence.Repositories;
-using Outbox_101.Infrastructure.Outbox;
-using Outbox_101.Domain.Tickets;
-
-namespace Outbox_101.Infrastructure.Persistence.Configurations;
+﻿namespace Outbox_101.Infrastructure.Persistence.Configurations;
 
 public static class PersistenceSetup
 {

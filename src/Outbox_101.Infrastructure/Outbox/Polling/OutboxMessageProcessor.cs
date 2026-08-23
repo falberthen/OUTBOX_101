@@ -1,13 +1,4 @@
-﻿using Newtonsoft.Json;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Outbox_101.Domain.Tickets.Events.Base;
-using Outbox_101.Infrastructure.Persistence;
-using Outbox_101.Infrastructure.Kafka.Producers;
-using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
-using Outbox_101.Infrastructure.Kafka.Producers.Serialization;
-
-namespace Outbox_101.Infrastructure.Outbox.Polling;
+﻿namespace Outbox_101.Infrastructure.Outbox.Polling;
 
 public class OutboxMessageProcessor : IOutboxMessageProcessor
 {

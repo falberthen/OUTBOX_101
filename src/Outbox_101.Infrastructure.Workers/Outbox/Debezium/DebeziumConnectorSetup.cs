@@ -1,10 +1,4 @@
-﻿using Polly;
-using System.Text;
-using System.Net.Mime;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-
-namespace Outbox_101.Infrastructure.Workers.Outbox.Debezium;
+﻿namespace Outbox_101.Infrastructure.Workers.Outbox.Debezium;
 
 public class DebeziumConnectorSetup : IDebeziumConnectorSetup
 {

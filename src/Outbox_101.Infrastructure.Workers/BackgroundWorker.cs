@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-
-namespace Outbox_101.Infrastructure.Workers;
+﻿namespace Outbox_101.Infrastructure.Workers;
 
 public class BackgroundWorker : BackgroundService
 {

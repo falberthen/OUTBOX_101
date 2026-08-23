@@ -1,9 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Configuration;
-using Outbox_101.EventConsumer.Configurations;
-using Outbox_101.Infrastructure.Persistence.Configurations;
-
-var configuration = new ConfigurationBuilder()
+﻿var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile($"appsettings.json", true, true)
     .Build();

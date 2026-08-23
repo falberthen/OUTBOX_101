@@ -1,8 +1,4 @@
-﻿using Confluent.Kafka;
-using Newtonsoft.Json;
-using Outbox_101.Domain.Tickets.Events.Base;
-
-namespace Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
+﻿namespace Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
 
 public static class KafkaExtensions
 {

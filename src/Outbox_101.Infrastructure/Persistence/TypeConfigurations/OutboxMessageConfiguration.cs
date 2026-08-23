@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Outbox_101.Infrastructure.Outbox;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace Outbox_101.Infrastructure.Persistence.TypeConfigurations;
+﻿namespace Outbox_101.Infrastructure.Persistence.TypeConfigurations;
 
 internal class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage>
 {

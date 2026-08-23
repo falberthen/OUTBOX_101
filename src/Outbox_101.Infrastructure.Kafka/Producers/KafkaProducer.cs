@@ -1,11 +1,4 @@
-﻿using Confluent.Kafka;
-using Newtonsoft.Json;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Outbox_101.Domain.Tickets.Events.Base;
-using System.Text;
-
-namespace Outbox_101.Infrastructure.Kafka.Producers;
+﻿namespace Outbox_101.Infrastructure.Kafka.Producers;
 
 public class KafkaProducer : IKafkaProducer
 {

@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using Outbox_101.Domain.Base;
-
-namespace Outbox_101.Infrastructure.Outbox;
+﻿namespace Outbox_101.Infrastructure.Outbox;
 
 public static class OutboxMessageExtension
 {
