@@ -1,10 +1,4 @@
-﻿using Polly;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Outbox_101.Infrastructure.Outbox.Polling;
-using Outbox_101.Infrastructure.Outbox;
-
-namespace Outbox_101.Infrastructure.Workers.Outbox.Polling;
+﻿namespace Outbox_101.Infrastructure.Workers.Outbox.Polling;
 
 public class OutboxMessageProcessingWorker : IOutboxMessageProcessingWorker
 {
@@ -34,9 +28,10 @@ public class OutboxMessageProcessingWorker : IOutboxMessageProcessingWorker
                _logger.LogInformation("Starting outbox message processor...");
 
                while (!cancellationToken.IsCancellationRequested)
+               {
                    await _outboxMessageProcessor.ProcessMessagesAsync(cancellationToken);
-
-               await Task.Delay(_processorOptions.Interval, cancellationToken);
+                   await Task.Delay(_processorOptions.Interval, cancellationToken);
+               }
            });
     }
 }
