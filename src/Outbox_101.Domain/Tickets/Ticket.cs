@@ -1,7 +1,4 @@
-﻿using Outbox_101.Domain.Base;
-using Outbox_101.Domain.Tickets.Events;
-
-namespace Outbox_101.Domain.Tickets;
+﻿namespace Outbox_101.Domain.Tickets;
 
 public record Ticket : AggregateRoot
 {
@@ -33,6 +30,9 @@ public record Ticket : AggregateRoot
 
     public void SetInProgress()
     {
+        if (Status != TicketStatus.OPEN)
+            return;
+
         Status = TicketStatus.IN_PROGRESS;
         var @event = new TicketInProgress(this);
         AppendEvent(@event);
@@ -40,6 +40,9 @@ public record Ticket : AggregateRoot
 
     public void Close()
     {
+        if (Status != TicketStatus.IN_PROGRESS)
+            return;
+
         Status = TicketStatus.CLOSED;
         var @event = new TicketClosed(this);
         AppendEvent(@event);
