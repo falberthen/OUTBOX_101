@@ -6,7 +6,7 @@ public static class ConsumerSetup
         IConfiguration configuration)
     {
         return services
-            .AddMediatR(AppDomain.CurrentDomain.GetAssemblies())
+            .AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()))
             .AddScoped<IKafkaConsumer, KafkaConsumer>()
             .AddSingleton<IEventDispatcher, EventDispatcher>()
             .AddSingleton(typeof(JsonEventSerializer<>))
