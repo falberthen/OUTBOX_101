@@ -1,6 +1,6 @@
 ﻿namespace Outbox_101.Domain.Tickets.Events.Base;
 
-public abstract record EventBase : INotification
+public abstract record EventBase : IDomainEvent
 {
     public Guid Id { get; set; }
     public DateTime OccurredAt { get; set; }
