@@ -17,11 +17,13 @@ public class EventDispatcher : IEventDispatcher
 
         try
         {
-            var scope = _serviceScopeFactory.CreateScope();
-            var scopedServices = scope.ServiceProvider;
-            var mediator = scopedServices.GetRequiredService<IMediator>();
+            using var scope = _serviceScopeFactory.CreateScope();
+            var handlerType = typeof(IEventHandler<>).MakeGenericType(@event.GetType());
 
-            await mediator.Publish(@event, cancellationToken);
+            if (scope.ServiceProvider.GetService(handlerType) is not IEventHandler handler)
+                throw new InvalidOperationException($"Handler for event {@event.GetType().Name} not registered.");
+
+            await handler.HandleAsync(@event, cancellationToken);
         }
         catch (Exception e)
         {
