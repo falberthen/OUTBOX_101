@@ -27,7 +27,6 @@ src
 	<li>Kafka (Confluent.Kafka 2.15)</li>
 	<li>Entity Framework Core 10 (Npgsql 10.0.3)</li>  
 	<li>Postgres</li>  
-	<li>MediatR 14</li>
 	<li>XUnit / NSubstitute 6</li>
 	<li>Docker Compose</li>
 	<li>Debezium (optional)</li>

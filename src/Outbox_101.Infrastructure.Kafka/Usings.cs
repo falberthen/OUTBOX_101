@@ -1,12 +1,12 @@
-global using System.Reflection;
-global using System.Text;
 global using Confluent.Kafka;
-global using MediatR;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Options;
-global using Newtonsoft.Json.Serialization;
 global using Newtonsoft.Json;
+global using Newtonsoft.Json.Serialization;
 global using Outbox_101.Domain.Tickets.Events.Base;
 global using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
 global using Polly;
+global using System.Reflection;
+global using System.Text;
+global using Outbox_101.Domain.Base;

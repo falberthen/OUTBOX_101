@@ -1,8 +1,12 @@
 global using FluentAssertions;
+global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Options;
 global using NSubstitute;
+global using Outbox_101.Domain.Base;
 global using Outbox_101.Domain.Tickets;
+global using Outbox_101.Domain.Tickets.Events.Base;
+global using Outbox_101.Infrastructure.Kafka.Consumers;
 global using Outbox_101.Infrastructure.Kafka.Producers;
 global using Outbox_101.Infrastructure.Outbox.Polling;
 global using Outbox_101.Infrastructure.Outbox;
