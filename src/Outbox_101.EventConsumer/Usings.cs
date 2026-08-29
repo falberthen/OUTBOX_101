@@ -1,11 +1,12 @@
-global using MediatR;
 global using Microsoft.Extensions.Configuration;
+global using Outbox_101.Domain.Base;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Hosting;
 global using Outbox_101.Domain.Tickets.Events;
 global using Outbox_101.EventConsumer.Configurations;
-global using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
 global using Outbox_101.Infrastructure.Kafka.Consumers;
-global using Outbox_101.Infrastructure.Persistence.Configurations;
+global using Outbox_101.Infrastructure.Kafka.Consumers.Serialization;
 global using Outbox_101.Infrastructure.Persistence;
+global using Outbox_101.Infrastructure.Persistence.Configurations;
 global using Outbox_101.Infrastructure.Workers;
+global using Outbox_101.Infrastructure.Extensions;
